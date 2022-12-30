@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes jump {
+            0% {transform: translateY(0px) scale(1, 1)}
+            /* 45% {transform: translateY(350px) scale(0.75, 1.25);} */
+            50% {transform: translateY(400px) scale(1.25, 0.75);}
+            55% {transform: translateY(350px) scale(0.75, 1.25);}
+            100% {transform: translateY(0px) scale(1, 1);} 
+        }
+
+        @keyframes shadow {
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+            to {
+                opacity: .5;
+                transform: scale(100%);
+            }
+        }
+
+        .ball {
+            margin: 0 auto;
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            background-color: red;
+            animation: jump 2s infinite;
+        }
+
+        .shadow {
+            border-radius: 100%;
+            bottom: 29.5%;
+            left: calc(50% - 50px);
+            right: calc(50% - 50px);
+            position: absolute;
+            content: '';
+            background-color: black;
+            filter: blur(3px);
+            width: 100px;
+            height: 5px;
+            animation: shadow 1s ease-in-out infinite;
+            animation-fill-mode: both;
+            animation-direction: alternate;
+            z-index: -1;
+        }
+
+        body {
+            min-height: 475px;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(rgb(193, 225, 241), rgb(36, 226, 226));
+        }
+    </style>
+</head>
+<body>
+    <div class="ball"></div>
+    <div class="shadow"></div>
+</body>
+</html>
